@@ -1,37 +1,8 @@
 <!-- navigation bar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<app-navbar></app-navbar>
 
 <!-- angular components -->
-<div class="h-100 row align-items-center"> 
-  <div class="col">
-    <router-outlet></router-outlet>
-  </div>  
-</div>
-
-
-
+<router-outlet></router-outlet>
+  
 <!-- footer -->
-<div class="fixed-bottom footer-copyright text-center py-3">© 2020 Copyright:
-  <a href="https://github.com/josemevi" target="_blank"> José David Melian Villalobos</a>
-</div>
+<app-footer></app-footer>

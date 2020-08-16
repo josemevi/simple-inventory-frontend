@@ -88,7 +88,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [              
+            "styles": [
               "src/styles.css"
             ],
             "scripts": []
@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "simple-inventory-frontend"
+    }
+  },
+  "defaultProject": "simple-inventory-frontend",
+  "cli": {
+    "analytics": false
+  }
 }
