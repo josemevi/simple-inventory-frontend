@@ -1,8 +1,21 @@
-<div class="container">
-    <div class="row">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/login">Login/Signup</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+  </ol>
+</nav>
+<div class="container-fluid">  
+  <div class="container-fluid" style="text-align: center;">
+    <button type="button" class="btn btn-primary" routerLink="/itemAdd">
+      <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+      Create Item
+  </button>
+  <br><br>
+  </div>
+    <div class="row w-100 h-100">
         <div class="card-deck h-100 w-100 justify-content-center">
-            <div class="card-container" style="width: 18rem;">
-                <img width="500" height="500" src="..." class="card-img-top" alt="../../assets/img/default-item.jpg">
+            <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/1">
+                <img height="200" src="../../assets/img/default-item.jpg" class="card-img-top" alt="../../assets/img/default-item.jpg">
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -15,8 +28,88 @@
                 <div class="card-body">
                   <a href="#" class="card-link">Card link</a>
                   <a href="#" class="card-link">Another link</a>
-                </div>
+                </div>              
+            </div>
+            <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/1">
+              <img height="200" src="../../assets/img/default-item.jpg" class="card-img-top" alt="boxes warehouse">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+              </ul>
+              <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>              
+          </div>
+          <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/1">
+            <img height="200" src="../../assets/img/default-item.jpg" class="card-img-top" alt="../../assets/img/default-item.jpg">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>              
+        </div>
+        <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/1">
+          <img height="200" src="../../assets/img/default-item.jpg" class="card-img-top" alt="../../assets/img/default-item.jpg">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>              
+      </div>
+      <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/1">
+        <img height="200" src="../../assets/img/default-item.jpg" class="card-img-top" alt="../../assets/img/default-item.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>              
+    </div>
+    <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/1">
+      <img height="200" src="../../assets/img/default-item.jpg" class="card-img-top" alt="../../assets/img/default-item.jpg">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>              
+  </div>
         </div>
     </div>
 </div>

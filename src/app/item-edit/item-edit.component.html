@@ -1,0 +1,125 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/login">Login/Signup</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item" ><a a routerLink="/itemDetail/{{id}}">Item Details ID:{{id}}</a></li>
+        <li class="breadcrumb-item" aria-current="page">Item Edit ID:{{id}}</li>
+    </ol>
+</nav>
+<div class="container-fluid">
+    <div class="w-100 row justify-content-center">
+       <div class="col-md-6">
+            <h4 style="text-align: center;">Item Basic Information</h4><br>
+            <form>
+                <div class="form-group">
+                    <label for="inputDescription">Description*</label>
+                    <input [(ngModel)]="itemBasic.description" [ngModelOptions]="{standalone: true}" type="email" class="form-control" id="inputDescription" placeholder="Item Description">
+                    <small class="form-text text-muted">Must provide a description.</small>
+                </div>
+                <div class="form-group">
+                    <label for="inputPrice">Price</label>
+                    <input [(ngModel)]="itemBasic.price" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="inputPrice" placeholder="Item Price">                
+                </div>
+                <div class="form-group">
+                    <label for="SelectSupplier">Supplier</label>
+                    <select [(ngModel)]="itemBasic.supplier_id" [ngModelOptions]="{standalone: true}" class="form-control" id="SelectSupplier">
+                    <option value = null>No Supplier</option>
+                    <option>2</option>
+                    </select>
+                    <small class="form-text text-muted">To clear supplier assign "No Supplier"</small>
+                </div>             
+                <div class="form-group">
+                    <label for="inputImg">Image URL</label>
+                    <input [(ngModel)]="itemBasic.image_url" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="inputImg" placeholder="Item Image URL">
+                </div>
+            </form>
+            <div style="text-align: center;">
+                <button type="button" class="btn btn-primary" (click)="changeBasicInfo()">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    Save
+                </button>
+            </div>
+       </div>
+        <div class="col-md-6">
+            <h4 style="text-align: center;">Item Price Reduction Information</h4><br>            
+            <form>
+                <div class="form-group">
+                    <label for="SelectPriceRedux">Price Reduction</label>
+                    <select [(ngModel)]="itemRedux.reduction_id" [ngModelOptions]="{standalone: true}" class="form-control" id="SelectPriceRedux">
+                      <option value = null>No Price Reduction</option>
+                      <option>2</option>
+                    </select>
+                    <small class="form-text text-muted">To clear price reduction assign "No Price Reduction" and Save</small>
+                    <small class="form-text text-muted">Price reductions than have expired will not been listed here</small>
+                    <small style="color: red !important" class="form-text text-muted">WARNING: start date must match with the current date if you want to apply the reduction right now, Assigning future start dates will activate the discount anyways</small>
+                  </div>
+            </form>
+            <div style="text-align: center;">
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                    Create Price Reduction
+                </button>
+            </div><br>
+            <div style="text-align: center;">
+                <button type="button" class="btn btn-primary" (click)="changeReduxInfo()">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    Save
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- create price reduction modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Price Reduction</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+                        <div class="form-group">
+                            <label for="inputReduction">Reduction %*</label>
+                            <div class="input-group mb-3">                                
+                                <input [(ngModel)]="redux.price" [ngModelOptions]="{standalone: true}" type="number" class="form-control" id="inputReduction" placeholder="Reduction Percent">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                            </div>                                                        
+                            <small class="form-text text-muted">Must provide a reduction percent number.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputStartDate">Start Date*</label>
+                            <input [(ngModel)]="redux.start_date" [ngModelOptions]="{standalone: true}" type="date" class="form-control" id="inputStartDate" placeholder="Start Date">
+                            <small class="form-text text-muted">Must provide a start date.</small>                            
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEndDate">End Date*</label>
+                            <input [(ngModel)]="redux.end_date" [ngModelOptions]="{standalone: true}" type="date" class="form-control" id="inputEndDate" placeholder="End Date">
+                            <small class="form-text text-muted">Must provide a end date.</small>                            
+                        </div>
+                    </form>
+                </div>
+            </div>            
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            <i class="fa fa-times" aria-hidden="true"></i>
+            Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="addRedux()">
+            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+            Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

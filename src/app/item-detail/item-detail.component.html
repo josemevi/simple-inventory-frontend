@@ -1,0 +1,89 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/login">Login/Signup</a></li>
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Item Details ID:{{id}}</li>
+    </ol>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="card mb-3" style="max-width: 100%">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <img src="../../assets/img/default-item.jpg" class="card-img" alt="warehouse boxes">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;">Item Details</h5>
+                        <div class="card-text" >
+                            <div class="justify-content-center">
+                                <table class="info table table-borderless">                                
+                                    <tbody>
+                                        <tr>
+                                            <th>Code:</th>
+                                            <td>algo</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Description:</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Price:</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>State:</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Creation Date:</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Created By:</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Supplier:</th>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Active Price Reduction:</th>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>                    
+                            <h5 class="card-title" style="text-align: center;">Price Reductions History</h5>
+                            <table class="table table table-bordered">
+                                <thead>
+                                    <th>%</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary" routerLink="/itemEdit/{{id}}">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            Edit
+        </button>&nbsp;
+        <button type="button" class="btn btn-primary" (click)="deactivate()">
+            <i class="fa fa-minus-square-o" aria-hidden="true"></i>
+            Discontinue
+        </button>
+    </div>    
+</div>

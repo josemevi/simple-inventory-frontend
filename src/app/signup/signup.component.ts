@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { signupFields } from '../interfaces/signupFields';
+import { Router } from '@angular/router';
 
+import { signupFields } from '../interfaces/signupFields';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
     password2: ""
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +25,8 @@ export class SignupComponent implements OnInit {
     if(this.signup.username && this.signup.password && this.signup.password2){
       if(this.signup.password == this.signup.password2){
         //ep here
+        console.log(this.signup);
+      this.router.navigateByUrl("/login");
       }else {
         alert("Password doesn't match");
       }
