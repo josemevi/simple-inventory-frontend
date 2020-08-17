@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { loginFields } from '../interfaces/loginFields';
+import { SessionService }  from '../session.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
     password : ""
   }
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, public sessionInfo: SessionService) { 
 
   }
 
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
       //ep here
       console.log(this.login);
       this.router.navigateByUrl("/dashboard");
+      this.sessionInfo.setSession(true,this.login.username)
     }else {
       alert("Fill all the fields")
     }

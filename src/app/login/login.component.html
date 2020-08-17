@@ -1,9 +1,9 @@
-<div class="h-100 row align-items-center"> 
+<div class="w-100 row align-items-center"> 
   <div class="col">    
     <div class="main">
       <form class="form-signin">
-          <!-- <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
-          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+          <!-- <img class="mb-4" src="../../assets/img/box.png" alt="page-logo" width="72" height="72"> -->
+          <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
           <label for="inputUser" class="sr-only">Username</label>
           <input [(ngModel)]="login.username" [ngModelOptions]="{standalone: true}" type="email" id="inputUser" class="form-control" placeholder="Username" required autofocus>
           <label for="inputPassword" class="sr-only">Password</label>
@@ -13,7 +13,10 @@
               Or&nbsp;<a routerLink="/signup">Sign Up</a>
             </div>
           </div>
-          <button (click)="doLogin()" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <button (click)="doLogin()" class="btn btn-lg btn-primary btn-block" type="submit">
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
+            Sign in
+          </button>
       </form>
     </div>
   </div>
