@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { loginFields } from '../interfaces/loginFields';
 import { SessionService }  from '../session.service';
+import { sessionAttributes } from '../interfaces/sessionAttributes';
 
 @Component({
   selector: 'app-login',
@@ -17,12 +18,14 @@ export class LoginComponent implements OnInit {
     password : ""
   }
 
+  session: sessionAttributes;
+
   constructor(private router: Router, public sessionInfo: SessionService) { 
 
   }
 
   ngOnInit(): void {
-    
+    this.session = this.sessionInfo.getSession();
   }
 
   doLogin(){

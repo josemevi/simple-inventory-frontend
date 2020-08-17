@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -9,16 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ItemDetailComponent implements OnInit {
   
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   id = this.route.snapshot.paramMap.get('id');
-
+  deactivated: boolean = false;
   ngOnInit(): void {
   }
 
   deactivate() {
     if(confirm("Are you sure?")){
       console.log("item deactivation")
+      alert("Item Deactivated");
+      this.router.navigateByUrl("/dashboard");
       //item deactivation
     }
   }
