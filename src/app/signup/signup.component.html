@@ -1,4 +1,4 @@
-<div class="h-100 row align-items-center"> 
+<div class="w-100 row align-items-center"> 
   <div class="col">    
     <div class="main">
       <form class="form-signin">
@@ -12,10 +12,13 @@
         <input [(ngModel)]="signup.password2" [ngModelOptions]="{standalone: true}" type="password" id="inputPassword2" class="form-control" placeholder="Confirm Password" required>
         <div class="checkbox mb-3 ">
           <div class="d-flex justify-content-center">
-            Or&nbsp;<a routerLink="/login">Log In</a>
+            Or&nbsp;<a routerLink="/login">Sign In</a>
           </div>
         </div>
-        <button (click)="doSignup()" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        <button (click)="doSignup()" class="btn btn-lg btn-primary btn-block" type="submit">
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+          Sign up
+        </button>
       </form>
     </div>
   </div>

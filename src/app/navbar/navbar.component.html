@@ -1,11 +1,11 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand mb-0 h1" routerLink="/login">
-      <img src="../../assets/img/box.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      Simple Inventory
-    </a>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary justify-content-between">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <a class="navbar-brand mb-0 h1" routerLink="/login">
+      <img src="../../assets/img/box.png" width="30" height="30" class="d-inline-block align-top" alt="page-logo">
+      Simple Inventory
+    </a>   
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item" [class.active]="currentRoute === '/login' || currentRoute !== '/dashboard' && !currentRoute.includes('item') ">
@@ -17,6 +17,13 @@
         <li class="nav-item" [class.active]="currentRoute === '/itemAdd'">
           <a class="nav-link" routerLink="/itemAdd">Create Item</a>
         </li>
-      </ul>
+      </ul>      
     </div>
+    <form class="form-inline">
+            
+      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()" [disabled]="!session.login">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+        Log out
+      </button>
+    </form>    
   </nav>
