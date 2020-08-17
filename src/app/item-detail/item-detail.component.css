@@ -1,0 +1,12 @@
+table td {
+    text-align: left;
+}
+
+.info th {
+    width: 50%;
+}
+
+.table {
+margin: auto;
+width: 70% !important; 
+}
