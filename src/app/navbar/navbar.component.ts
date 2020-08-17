@@ -20,7 +20,6 @@ export class NavbarComponent implements OnInit {
     
 
     ngOnInit() {
-        console.log("hola");
         this.router.events.pipe(
             filter(event => event instanceof NavigationEnd)
         ).subscribe(res => {

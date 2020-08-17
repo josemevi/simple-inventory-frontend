@@ -53,7 +53,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>                    
+                            </div><br>                    
                             <h5 class="card-title" style="text-align: center;">Price Reductions History</h5>
                             <table class="table table table-bordered">
                                 <thead>
@@ -66,8 +66,25 @@
                                         <td></td>
                                     </tr>
                                 </tbody>
-                            </table>
-                        </div>
+                            </table><br>
+                            <div *ngIf="deactivated">
+                                <h5 class="card-title" style="text-align: center;">Discontinued Information</h5>
+                                <div class="justify-content-center">
+                                    <table class="info table table-borderless">                                
+                                        <tbody>
+                                            <tr>
+                                                <th>Reason:</th>
+                                                <td>algo</td>
+                                            </tr>
+                                            <tr>
+                                                <th>User:</th>
+                                                <td></td>
+                                            </tr>                                        
+                                        </tbody>
+                                    </table>
+                                </div>                                   
+                            </div>
+                        </div>                                
                         <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                     </div>
                 </div>
@@ -75,7 +92,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div *ngIf="!deactivated" class="container-fluid">
     <div class="d-flex justify-content-center">
         <button type="button" class="btn btn-primary" routerLink="/itemEdit/{{id}}">
             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
