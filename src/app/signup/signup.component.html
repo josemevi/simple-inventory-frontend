@@ -5,7 +5,7 @@
         <!-- <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
         <h1 class="h3 mb-3 font-weight-normal">Create a Account</h1>
         <label for="inputUser" class="sr-only">Username</label>
-        <input [(ngModel)]="signup.username" [ngModelOptions]="{standalone: true}" type="email" id="inputUser" class="form-control" placeholder="Username" required autofocus>
+        <input [(ngModel)]="signup.username" [ngModelOptions]="{standalone: true}" type="text" id="inputUser" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input [(ngModel)]="signup.password" [ngModelOptions]="{standalone: true}" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <label for="inputPassword2" class="sr-only">Confirm Password</label>
@@ -15,7 +15,7 @@
             Or&nbsp;<a routerLink="/login">Sign In</a>
           </div>
         </div>
-        <button (click)="doSignup()" class="btn btn-lg btn-primary btn-block" type="submit">
+        <button (click)="doSignup()" class="btn btn-lg btn-primary btn-block">
           <i class="fa fa-user-plus" aria-hidden="true"></i>
           Sign up
         </button>

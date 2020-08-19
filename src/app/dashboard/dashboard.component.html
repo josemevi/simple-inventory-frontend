@@ -14,102 +14,23 @@
   </div>
     <div class="row w-100 h-100">
         <div class="card-deck h-100 w-100 justify-content-center">
-            <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/1">
-                <img height="200" src="../../assets/img/default-item.jpg" class="card-img-top" alt="../../assets/img/default-item.jpg">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Cras justo odio</li>
-                  <li class="list-group-item">Dapibus ac facilisis in</li>
-                  <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>              
-            </div>
-            <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/1">
-              <img height="200" src="../../assets/img/default-item.jpg" class="card-img-top" alt="boxes warehouse">
+          <div *ngFor = "let item of itemData">
+            <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/{{item.item_id}}">
+              <img height="200" [src]="item.item_img_url" class="card-img-top" alt="item-image">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">Code: {{item.item_code}}</h5>
+                <p class="card-text"></p>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">Description: {{item.item_description}}</li>
+                <li *ngIf="item.item_price != 'null'" class="list-group-item">Price: {{item.item_price}}</li>
+                <li *ngIf="item.item_price == 'null'" class="list-group-item">Price: <strong>No Assigned Price</strong></li>
+                <li *ngIf="item.state_id == 0" class="list-group-item">Status: <span style="color:green;">{{item.state_name}}</span></li>
+                <li *ngIf="item.state_id == 1" class="list-group-item">Status: <span style="color:red;">{{item.state_name}}</span></li>                
               </ul>
-              <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>              
+              <p class="card-text"><small class="text-muted">Created by: {{item.user_name}} at {{item.item_creation_date}} </small></p>
           </div>
-          <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/1">
-            <img height="200" src="../../assets/img/default-item.jpg" class="card-img-top" alt="../../assets/img/default-item.jpg">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-            <div class="card-body">
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>              
-        </div>
-        <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/1">
-          <img height="200" src="../../assets/img/default-item.jpg" class="card-img-top" alt="../../assets/img/default-item.jpg">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>              
-      </div>
-      <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/1">
-        <img height="200" src="../../assets/img/default-item.jpg" class="card-img-top" alt="../../assets/img/default-item.jpg">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>              
-    </div>
-    <div class="card-container" style="width: 24rem;border:1px solid black;" routerLink="/itemDetail/1">
-      <img height="200" src="../../assets/img/default-item.jpg" class="card-img-top" alt="../../assets/img/default-item.jpg">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-      </div>              
-  </div>
         </div>
     </div>
 </div>

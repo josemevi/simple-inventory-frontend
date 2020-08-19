@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { loginFields } from '../interfaces/loginFields';
 import { SessionService }  from '../session.service';
+import { UsersRequestService } from '../users-request.service';
+import { loginFields } from '../interfaces/loginFields';
 import { sessionAttributes } from '../interfaces/sessionAttributes';
 
 @Component({
@@ -15,12 +16,12 @@ export class LoginComponent implements OnInit {
 
   login : loginFields = {
     username : "",
-    password : ""
+    password : "",
   }
 
   session: sessionAttributes;
 
-  constructor(private router: Router, public sessionInfo: SessionService) { 
+  constructor(private router: Router, private sessionInfo: SessionService, private users: UsersRequestService) { 
 
   }
 
@@ -30,14 +31,22 @@ export class LoginComponent implements OnInit {
 
   doLogin(){
     if(this.login.username && this.login.password){
-      //ep here
-      console.log(this.login);
-      this.router.navigateByUrl("/dashboard");
-      this.sessionInfo.setSession(true,this.login.username)
+      let data = {
+        username: this.login.username,
+        password: this.login.password
+      }
+      this.users.login(data).subscribe(res => {
+        console.log(res);
+        this.sessionInfo.setSession(res.user_id,true,this.login.username, res.jsessionId)
+        console.log(this.sessionInfo.getSession());
+        localStorage.setItem("sessionInfo",JSON.stringify(this.sessionInfo.getSession()));
+        this.router.navigate(['/dashboard'], { replaceUrl: true });
+      }, err => {
+        console.error(err);
+        alert(err.error.msg);
+      });              
     }else {
       alert("Fill all the fields")
     }
   }
-
-  //[(ngModel)]="login.user_name" [ngModelOptions]="{standalone: true}"
 }

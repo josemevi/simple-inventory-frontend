@@ -1,4 +1,6 @@
 export interface sessionAttributes{
+    id: Number,
     login: Boolean,
-    username: String
+    username: String,
+    session: String
 }

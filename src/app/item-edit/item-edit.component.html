@@ -23,8 +23,8 @@
                 <div class="form-group">
                     <label for="SelectSupplier">Supplier</label>
                     <select [(ngModel)]="itemBasic.supplier_id" [ngModelOptions]="{standalone: true}" class="form-control" id="SelectSupplier">
-                    <option value = null>No Supplier</option>
-                    <option>2</option>
+                        <option value = -1>No Supplier</option>
+                        <option *ngFor="let sup of supplierData" [(value)]="sup.supplier_id">{{sup.supplier_name}} / {{sup.supplier_country}}</option>
                     </select>
                     <small class="form-text text-muted">To clear supplier assign "No Supplier"</small>
                 </div>             
@@ -46,8 +46,8 @@
                 <div class="form-group">
                     <label for="SelectPriceRedux">Price Reduction</label>
                     <select [(ngModel)]="itemRedux.reduction_id" [ngModelOptions]="{standalone: true}" class="form-control" id="SelectPriceRedux">
-                      <option value = null>No Price Reduction</option>
-                      <option>2</option>
+                      <option value = -1>No Price Reduction</option>
+                      <option *ngFor="let red of reduxData" [(value)]="red.reduction_id">{{red.reduction_price}}% / {{red.reduction_start_date}} / {{red.reduction_end_date}}</option>
                     </select>
                     <small class="form-text text-muted">To clear price reduction assign "No Price Reduction" and Save</small>
                     <small class="form-text text-muted">Price reductions than have expired will not been listed here</small>
@@ -111,7 +111,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+        <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">
             <i class="fa fa-times" aria-hidden="true"></i>
             Close
         </button>

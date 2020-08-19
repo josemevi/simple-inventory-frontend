@@ -10,7 +10,7 @@
         <div class="card mb-3" style="max-width: 100%">
             <div class="row no-gutters">
                 <div class="col-md-6">
-                    <img src="../../assets/img/default-item.jpg" class="card-img" alt="warehouse boxes">
+                    <img [src]="itemData.item_img_url" class="card-img" alt="warehouse boxes">
                 </div>
                 <div class="col-md-6">
                     <div class="card-body">
@@ -21,49 +21,56 @@
                                     <tbody>
                                         <tr>
                                             <th>Code:</th>
-                                            <td>algo</td>
+                                            <td>{{itemData.item_code}}</td>
                                         </tr>
                                         <tr>
                                             <th>Description:</th>
-                                            <td></td>
+                                            <td>{{itemData.item_description}}</td>
                                         </tr>
                                         <tr>
                                             <th>Price:</th>
-                                            <td></td>
+                                            <td *ngIf="itemData.item_price == 'null'">No Assigned Price</td>
+                                            <td *ngIf="itemData.item_price != 'null'">{{itemData.item_price}}</td>
                                         </tr>
                                         <tr>
                                             <th>State:</th>
-                                            <td></td>
+                                            <td>{{itemData.state_name}}</td>
                                         </tr>
                                         <tr>
                                             <th>Creation Date:</th>
-                                            <td></td>
+                                            <td>{{itemData.item_creation_date}}</td>
                                         </tr>
                                         <tr>
                                             <th>Created By:</th>
-                                            <td></td>
+                                            <td>{{itemData.user_name}}</td>
                                         </tr>
                                         <tr>
                                             <th>Supplier:</th>
-                                            <td></td>
+                                            <td *ngIf="itemData.supplier_name == 'null'">No Assigned Supplier</td>
+                                            <td *ngIf="itemData.supplier_name != 'null'">{{itemData.supplier_name}}</td>
                                         </tr>
                                         <tr>
-                                            <th>Active Price Reduction:</th>
-                                            <td></td>
+                                            <th>Active Price Reduction (ID):</th>
+                                            <td *ngIf="itemData.reduction_id == 'null'">No Active Price Reduction</td>
+                                            <td *ngIf="itemData.reduction_id != 'null'">{{itemData.reduction_id}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div><br>                    
-                            <h5 class="card-title" style="text-align: center;">Price Reductions History</h5>
+                            <h5 class="card-title" style="text-align: center;">Price Reductions History (Assigned)</h5>
                             <table class="table table table-bordered">
                                 <thead>
+                                    <th>ID</th>
                                     <th>%</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td>
+                                    <tr *ngFor = "let red of priceRedux">
+                                        <td>{{red.reduction_id}}</td>
+                                        <td>{{red.reduction_price}}</td>
+                                        <td>{{red.reduction_start_date}}</td>
+                                        <td>{{red.reduction_end_date}}</td>
                                     </tr>
                                 </tbody>
                             </table><br>
@@ -74,24 +81,31 @@
                                         <tbody>
                                             <tr>
                                                 <th>Reason:</th>
-                                                <td>algo</td>
+                                                <td>{{deactivationInfo.deactivation_reason}}</td>
                                             </tr>
                                             <tr>
-                                                <th>User:</th>
-                                                <td></td>
+                                                <th>Deactivated By:</th>
+                                                <td>{{deactivationInfo.user_name}}</td>
                                             </tr>                                        
                                         </tbody>
                                     </table>
-                                </div>                                   
+                                </div>                                                           
                             </div>
-                        </div>                                
-                        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                        </div>                                                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div *ngIf="deactivated" class="container-fluid">
+    <div class="d-flex justify-content-center">                                       
+        <button type="button" class="btn btn-secondary" routerLink="/dashboard">
+            <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+            Go Back
+        </button>
+    </div>    
+</div>   
 <div *ngIf="!deactivated" class="container-fluid">
     <div class="d-flex justify-content-center">
         <button type="button" class="btn btn-primary" routerLink="/itemEdit/{{id}}">
